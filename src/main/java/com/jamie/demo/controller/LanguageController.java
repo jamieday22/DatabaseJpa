@@ -47,7 +47,7 @@ public class LanguageController {
         return new ResponseEntity<Language>(languageService.getLanguageByLanguage_Id(language_id), HttpStatus.OK);
     }
 
-    // build update langauge REST API
+    // build update language REST API
     // http://localhost:8080/api/langauge/1
     @PutMapping("{language_id}")
     public ResponseEntity<Language> updateLanguage(@PathVariable("language_id") int language_id
