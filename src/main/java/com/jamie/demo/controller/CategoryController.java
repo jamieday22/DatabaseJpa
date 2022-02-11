@@ -3,9 +3,7 @@ package com.jamie.demo.controller;
 import java.util.List;
 
 import com.jamie.demo.model.Category;
-import com.jamie.demo.model.Language;
 import com.jamie.demo.service.CategoryService;
-import com.jamie.demo.service.LanguageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
