@@ -29,8 +29,8 @@ public class Film {
     @Column(name = "description")
     private String description;
 
-//    @Column(name = "release_year")
-//    private Year release_year;
+    @Column(name = "release_year")
+    private Integer release_year;
 
     @Column(name = "rating")
     private String rating;

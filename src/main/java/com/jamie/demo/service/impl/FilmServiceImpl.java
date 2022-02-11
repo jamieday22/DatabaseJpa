@@ -50,11 +50,12 @@ public class FilmServiceImpl implements FilmService {
         Film existingFilm = filmRepository.findById(film_id).orElseThrow(
                 () -> new ResourceNotFoundException("Film", "film_id", film_id));
 
+        //existingFilm.setLanguage_id(film.getLanguage_id());
         existingFilm.setTitle(film.getTitle());
-//        existingFilm.setDescription(film.getDescription());
-//        existingFilm.setRelease_year(film.getRelease_year());
-//        existingFilm.setRating(film.getRating());
-//
+        existingFilm.setDescription(film.getDescription());
+        existingFilm.setRelease_year(film.getRelease_year());
+        existingFilm.setRating(film.getRating());
+
         // save existing employee to DB
         filmRepository.save(existingFilm);
         return existingFilm;
