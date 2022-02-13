@@ -2,21 +2,16 @@ package com.jamie.demo.model;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Data
+@EqualsAndHashCode(exclude = "actor")
 @Entity
 @Table(name="film")
 public class Film {
@@ -24,7 +19,6 @@ public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int film_id;
-
 
     @Column(name = "title")
     private String title;
@@ -41,69 +35,24 @@ public class Film {
     @Column(name = "rating")
     private String rating;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "film")
-    @JsonIgnore
-    private Set<Actor> actor = new HashSet<>();
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "film_actor",
+            joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"))
+    @JsonManagedReference
+    private Set<Actor> actor;
 
-    public Film(){
-
-    }
-
-    public int getFilm_id() {
-        return film_id;
-    }
-
-    public void setFilm_id(int film_id) {
-        this.film_id = film_id;
-    }
-
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLanguage_id() {
-        return language_id;
-    }
-
-    public void setLanguage_id(String language_id) {
+    public Film(String title,String language_id, String description , Integer release_year, String rating , Actor actor) {
         this.language_id = language_id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Integer getRelease_year() {
-        return release_year;
-    }
-
-    public void setRelease_year(Integer release_year) {
         this.release_year = release_year;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
         this.rating = rating;
+        this.title = title;
+        this.actor = Stream.of(actor).collect(Collectors.toSet());
+        this.actor.forEach(x -> x.getFilm().add(this));
     }
 
-    public Set<Actor> getActor() {
-        return actor;
-    }
-
-    public void setActor(Set<Actor> actor) {
-        this.actor = actor;
+        public Film (){
     }
 }

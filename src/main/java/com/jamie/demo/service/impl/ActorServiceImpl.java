@@ -46,14 +46,14 @@ public class ActorServiceImpl implements ActorService {
     @Override
     public Actor updateActor(Actor actor, int actor_id) {
 
-        // we need to check whether language with given id is exists in DB or not
+        // we need to check whether actor with given id is exists in DB or not
         Actor existingActor = actorRepository.findById(actor_id).orElseThrow(
                 () -> new ResourceNotFoundException("Actor", "actor_id", actor_id));
 
         existingActor.setFirst_name(actor.getFirst_name());
         existingActor.setLast_name(actor.getLast_name());
 
-        // save existing employee to DB
+        // save existing actor to DB
         actorRepository.save(existingActor);
         return existingActor;
     }

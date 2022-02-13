@@ -57,10 +57,11 @@ public class FilmController {
 
     // build delete film REST API
     // http://localhost:8080/api/film/1
-    @DeleteMapping("{film_id}")
-    public ResponseEntity<String> deleteFilm(@PathVariable("film_id") int film_id){
 
-        // delete film from DB
+    @DeleteMapping("{film_id}")
+    public ResponseEntity<String> deleteActor(@PathVariable("film_id") int film_id){
+
+        // delete Film from DB
         filmService.deleteFilm(film_id);
 
         return new ResponseEntity<String>("Film deleted successfully!.", HttpStatus.OK);
