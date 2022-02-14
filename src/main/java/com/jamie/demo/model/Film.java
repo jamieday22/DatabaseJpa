@@ -43,16 +43,19 @@ public class Film {
     @JsonManagedReference
     private Set<Actor> actor;
 
-    public Film(String title,String language_id, String description , Integer release_year, String rating , Actor actor) {
+    public Film(String title,String language_id, String description , Integer release_year, String rating) {  // , Actor actor
         this.language_id = language_id;
         this.description = description;
         this.release_year = release_year;
         this.rating = rating;
         this.title = title;
-        this.actor = Stream.of(actor).collect(Collectors.toSet());
-        this.actor.forEach(x -> x.getFilm().add(this));
+//        this.actor = Stream.of(actor).collect(Collectors.toSet());
+//        this.actor.forEach(x -> x.getFilm().add(this));
     }
 
         public Film (){
     }
+
+
+
 }
