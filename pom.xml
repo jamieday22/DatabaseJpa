@@ -14,6 +14,19 @@
 <version>0.0.1-SNAPSHOT</version>
 <name>database</name>
 <description>My first database with sakila</description>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>software.amazon.awssdk</groupId>
+				<artifactId>bom</artifactId>
+				<version>2.17.130</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 <dependencies>
 	<dependency>
 		<groupId>junit</groupId>
@@ -94,9 +107,24 @@
 		<scope>test</scope>
 	</dependency>
 	<dependency>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok</artifactId>
+		<groupId>software.amazon.awssdk</groupId>
+		<artifactId>ec2</artifactId>
 	</dependency>
+	<dependency>
+		<groupId>software.amazon.awssdk</groupId>
+		<artifactId>s3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>software.amazon.awssdk</groupId>
+		<artifactId>dynamodb</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.amazonaws.secretsmanager</groupId>
+		<artifactId>aws-secretsmanager-jdbc</artifactId>
+		<version>1.0.5</version>
+	</dependency>
+
+
 
 
 
@@ -111,28 +139,19 @@
 	<artifactId>spring-boot-starter-web</artifactId>
 
 </properties>
-
-<build>
-
+	<build>
 	<finalName>maven-unit-test</finalName>
 	<plugins>
-<!--		<plugin>-->
-<!--			<groupId>org.apache.maven.plugins</groupId>-->
-<!--			<artifactId>maven-surefire-plugin</artifactId>-->
-<!--			<version>2.12.4</version>-->
-<!--		</plugin>-->
 		<plugin>
-			<artifactId>maven-assembly-plugin</artifactId>
-			<configuration>
-				<archive>
-					<manifest>
-						<mainClass>com.jamie.demo.DatabaseApplication</mainClass>
-					</manifest>
-				</archive>
-				<descriptorRefs>
-					<descriptorRef>jar-with-dependencies</descriptorRef>
-				</descriptorRefs>
-			</configuration>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<!--				<version>2.12.4</version>-->
+			<!--				<configuration>-->
+			<!--					<includes>-->
+			<!--						<include>runCucumberTests.java</include>-->
+			<!--					</includes>-->
+			<!--					<testFailureIgnore>true</testFailureIgnore>-->
+			<!--				</configuration>-->
 		</plugin>
 		<plugin>
 			<groupId>org.jacoco</groupId>
@@ -158,16 +177,31 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-maven-plugin</artifactId>
 			<configuration>
-				<excludes>
-					<exclude>
-						<groupId>org.projectlombok</groupId>
-						<artifactId>lombok</artifactId>
-					</exclude>
-				</excludes>
+				<fork>true</fork>
+				<mainClass>${start-class}</mainClass>
+			</configuration>
+			<executions>
+				<execution>
+					<goals>
+						<goal>repackage</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<configuration>
+				<archive>
+					<manifest>
+						<mainClass>com.jamie.demo.DatabaseApplication</mainClass>
+					</manifest>
+				</archive>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
 			</configuration>
 		</plugin>
 	</plugins>
 </build>
-
 
 </project>
