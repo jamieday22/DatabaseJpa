@@ -141,9 +141,9 @@
 
 </dependencies>
 <properties>
-	<java.version>17</java.version>
-	<maven.compiler.source>17</maven.compiler.source>
-	<maven.compiler.target>17</maven.compiler.target>
+	<java.version>11</java.version>
+	<maven.compiler.source>11</maven.compiler.source>
+	<maven.compiler.target>11</maven.compiler.target>
 	<sonar.organization>jamieday22</sonar.organization>
 	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	<groupId>org.springframework.boot</groupId>
