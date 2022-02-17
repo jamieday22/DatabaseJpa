@@ -8,10 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="category")
+@NoArgsConstructor
 public class Category {
 
     @Id
@@ -21,5 +23,8 @@ public class Category {
     @Column(name = "name")
     private String name;
 
+    public Category(String name){
+        this.name = name;
 
+    }
 }

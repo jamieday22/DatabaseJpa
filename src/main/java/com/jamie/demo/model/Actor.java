@@ -6,13 +6,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @Entity
-@Table(name="actor")
+@Table(name = "actor")
 public class Actor {
 
     @Id

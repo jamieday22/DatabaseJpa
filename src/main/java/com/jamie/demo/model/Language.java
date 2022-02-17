@@ -8,10 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="language")
+@NoArgsConstructor
 public class Language {
 
     @Id
@@ -20,5 +22,10 @@ public class Language {
 
     @Column(name = "name")
     private String name;
+
+    public Language(String name){
+        this.name = name;
+
+    }
 
 }

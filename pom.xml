@@ -123,6 +123,17 @@
 		<artifactId>aws-secretsmanager-jdbc</artifactId>
 		<version>1.0.5</version>
 	</dependency>
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-server</artifactId>
+		<version>3.141.59</version>
+		<scope>compile</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager --><dependency>
+	<groupId>io.github.bonigarcia</groupId>
+	<artifactId>webdrivermanager</artifactId>
+	<version>5.0.3</version>
+	</dependency>
 
 
 
