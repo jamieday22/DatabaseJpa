@@ -13,23 +13,7 @@ import static org.mockito.Mockito.verify;
 class LanguageControllerTest {
 
 
-    @Mock
-    private LanguageRepository languageRepository;
-    private LanguageService underTest;
 
-    @BeforeEach
-    void setUp() {
-        underTest = new LanguageServiceImpl(languageRepository);
-    }
-
-    @Test
-    void canGetAllLanguage() {
-        //when
-        underTest.getAllLanguage();
-        //then
-        verify(languageRepository).findAll();
-
-    }
 
     @Test
     void saveLanguage() {
