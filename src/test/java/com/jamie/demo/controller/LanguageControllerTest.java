@@ -14,10 +14,7 @@ class LanguageControllerTest {
 
 
 
-
-    @Test
-    void saveLanguage() {
-    }
+    
 
     @Test
     void getAllLanguage() {
