@@ -4,6 +4,7 @@ package com.jamie.demo.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.jamie.demo.model.Actor;
+import com.jamie.demo.repository.ActorRepository;
 import com.jamie.demo.service.ActorService;
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +36,9 @@ public class ActorControllerTest {
     @MockBean
     private ActorService actorService;
 
+    @MockBean
+    private ActorRepository actorRepository;
+
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -57,9 +61,9 @@ public class ActorControllerTest {
 //        // then - verify the result or output using assert statements
 //        response.andDo(print()).
 //                andExpect(status().isCreated())
-//                .andExpect(jsonPath("$.first_name",
-//                        is(actor.getActor_id())))
-//                .andExpect(jsonPath("$.last_name",
+//                .andExpect(jsonPath("first_name",
+//                        is(actor.getFirstName())))
+//                .andExpect(jsonPath("last_name",
 //                        is(actor.getLastName())));
 //
 //
