@@ -1,8 +1,11 @@
 package com.jamie.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -21,7 +24,9 @@ public class Category {
     @Column(name = "name")
     private String Name;
 
-
+    @ManyToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Film> films = new HashSet<>();
 
 
 }

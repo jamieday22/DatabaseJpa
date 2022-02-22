@@ -1,8 +1,10 @@
 package com.jamie.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -21,6 +23,10 @@ public class Language {
     @Column(name = "name")
     private String Name;
 
+    @OneToMany
+    @JoinColumn(name = "language_id", insertable = false, updatable = false)
+    @JsonIgnore
+    private Set<Film> film;
 
 
 
