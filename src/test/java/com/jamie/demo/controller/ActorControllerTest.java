@@ -62,8 +62,6 @@ public class ActorControllerTest {
                         is(actor.getFirstName())))
                 .andExpect(jsonPath("$.lastName",
                         is(actor.getLastName())));
-
-
     }
 
     // JUnit test for Get All actors REST API
