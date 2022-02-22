@@ -3,6 +3,7 @@ package com.jamie.demo.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jamie.demo.model.Category;
 import com.jamie.demo.service.CategoryService;
+import com.jamie.demo.service.impl.controller.CategoryController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -16,7 +17,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willDoNothing;
