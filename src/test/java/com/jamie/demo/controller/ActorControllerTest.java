@@ -1,13 +1,10 @@
 package com.jamie.demo.controller;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.jamie.demo.model.Actor;
 import com.jamie.demo.service.ActorService;
 import com.jamie.demo.service.impl.controller.ActorController;
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -20,15 +17,17 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.BDDMockito.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willDoNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @WebMvcTest(ActorController.class)
-public class ActorControllerTest {
+class ActorControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -44,8 +43,8 @@ public class ActorControllerTest {
 
         // given - precondition or setup
         Actor actor = Actor.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
+                .firstName("Dave")
+                .lastName("Smith")
                 .build();
         given(actorService.saveActor(any(Actor.class)))
                 .willAnswer((invocation)-> invocation.getArgument(0));
@@ -91,8 +90,8 @@ public class ActorControllerTest {
         // given - precondition or setup
         int actor_id = 1;
         Actor actor = Actor.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
+                .firstName("Dave")
+                .lastName("Smith")
                 .build();
         given(actorService.getActorById(actor_id)).willReturn(Optional.of(actor));
 
@@ -115,8 +114,8 @@ public class ActorControllerTest {
         // given - precondition or setup
         int actor_id = 1;
         Actor actor = Actor.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
+                .firstName("Dave")
+                .lastName("Smith")
                 .build();
         given(actorService.getActorById(actor_id)).willReturn(Optional.empty());
 
@@ -134,13 +133,13 @@ public class ActorControllerTest {
         // given - precondition or setup
         int actor_id = 1;
         Actor savedActor = Actor.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
+                .firstName("Dave")
+                .lastName("Smith")
                 .build();
 
         Actor updatedActor = Actor.builder()
-                .firstName("Ram")
-                .lastName("Jadhav")
+                .firstName("David")
+                .lastName("Johnson")
                 .build();
         given(actorService.getActorById(actor_id)).willReturn(Optional.of(savedActor));
         given(actorService.updateActor(any(Actor.class)))
@@ -166,13 +165,13 @@ public class ActorControllerTest {
         // given - precondition or setup
         int actor_id = 1;
         Actor savedActor = Actor.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
+                .firstName("Dave")
+                .lastName("Smith")
                 .build();
 
         Actor updatedActor = Actor.builder()
-                .firstName("Ram")
-                .lastName("Jadhav")
+                .firstName("David")
+                .lastName("Johnson")
                 .build();
         given(actorService.getActorById(actor_id)).willReturn(Optional.empty());
         given(actorService.updateActor(any(Actor.class)))
@@ -204,5 +203,3 @@ public class ActorControllerTest {
     }
 }
 
-
-    
