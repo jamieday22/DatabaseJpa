@@ -3,7 +3,6 @@ package com.jamie.demo.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jamie.demo.model.Actor;
 import com.jamie.demo.service.ActorService;
-import com.jamie.demo.service.impl.controller.ActorController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.jamie.demo.model.Film;
 import com.jamie.demo.service.FilmService;
-import com.jamie.demo.service.impl.controller.FilmController;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
