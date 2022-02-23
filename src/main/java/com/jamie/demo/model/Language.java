@@ -23,10 +23,7 @@ public class Language {
     @Column(name = "name")
     private String Name;
 
-    @OneToMany
-    @JoinColumn(name = "language_id", insertable = false, updatable = false)
-    @JsonIgnore
-    private Set<Film> film;
+
 
 
 

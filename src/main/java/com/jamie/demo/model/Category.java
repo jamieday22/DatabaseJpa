@@ -24,9 +24,7 @@ public class Category {
     @Column(name = "name")
     private String Name;
 
-    @ManyToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<Film> films = new HashSet<>();
+
 
 
 }

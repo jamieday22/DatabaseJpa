@@ -1,6 +1,7 @@
 package com.jamie.demo.controller;
 
 import com.jamie.demo.model.Film;
+import com.jamie.demo.model.Language;
 import com.jamie.demo.service.FilmService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 public class FilmController {
 
     private FilmService filmService;
+
 
     public FilmController(FilmService filmService) {
         this.filmService = filmService;
@@ -49,7 +51,7 @@ public class FilmController {
 //                    savedFilm.setRelease_Year(film.getRelease_Year());
                     savedFilm.setDescription(film.getDescription());
                     savedFilm.setRating(film.getRating());
-//                    savedFilm.setLanguage_Id(film.getLanguage_Id());
+
 
 
                     Film updatedFilm = filmService.updateFilm(savedFilm);
