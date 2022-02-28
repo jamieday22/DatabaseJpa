@@ -31,7 +31,7 @@ public class Actor implements Serializable {
 
     @JsonIgnore
     @ManyToMany(mappedBy = "actor")
-    private Set<Film> films = new HashSet<>();
+    private Set<Film> film = new HashSet<>();
 
 //    @JsonIgnore
 //    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "actor")

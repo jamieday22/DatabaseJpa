@@ -27,6 +27,7 @@ public class Review {
     @Column(name = "film_id")
     private String Film_Id;
 
+
 //    @JoinColumn(name = "film_id", referencedColumnName = "film_id", updatable = false, insertable = false)
 //    private Film film;
 

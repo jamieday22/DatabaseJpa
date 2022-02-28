@@ -38,11 +38,12 @@ public class Film {
     @Column(name = "rating")
     private String Rating;
 
-    @Column(name = "review")
-    private String review;
 
     @Column(name = "language_id")
     private String Language_Id;
+
+    @Column(name = "actor_id")
+    private String actor_id;
 
 
 

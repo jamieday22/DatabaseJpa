@@ -52,7 +52,6 @@ public class FilmController {
                     savedFilm.setRelease_Year(film.getRelease_Year());
                     savedFilm.setDescription(film.getDescription());
                     savedFilm.setRating(film.getRating());
-                    savedFilm.setReview(film.getReview());
 
 
 
