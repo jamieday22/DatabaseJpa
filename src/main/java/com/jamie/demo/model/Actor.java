@@ -28,10 +28,12 @@ public class Actor implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToMany(mappedBy = "actor", fetch = FetchType.LAZY)
+
     @JsonIgnore
+    @ManyToMany(mappedBy = "actor")
     private Set<Film> films = new HashSet<>();
 
-
-
+//    @JsonIgnore
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "actor")
+//    private Set<Film> films = new HashSet<>();
 }

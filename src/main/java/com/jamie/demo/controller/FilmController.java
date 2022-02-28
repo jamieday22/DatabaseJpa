@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/films")
 public class FilmController {
@@ -48,9 +49,11 @@ public class FilmController {
 
                     savedFilm.setTitle(film.getTitle());
                     savedFilm.setDescription(film.getDescription());
-//                    savedFilm.setRelease_Year(film.getRelease_Year());
+                    savedFilm.setRelease_Year(film.getRelease_Year());
                     savedFilm.setDescription(film.getDescription());
                     savedFilm.setRating(film.getRating());
+                    savedFilm.setReview(film.getReview());
+
 
 
 
